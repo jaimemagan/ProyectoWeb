@@ -1,13 +1,12 @@
 /**Root son variables  con valores que se puedem reutilizar y si necesita cambio solo se modifica aqui**/
 :root {
-    --primario: #ffffff;
+    --primario: #9c681f;
     --primarioOscuro: #000000;
     --secundario: #FFCE00;
     --secundarioOscuro: rgb(233, 187, 2);
     --blanco: #FFF;
     --negro: #000;
     --rojo:#980404;
-
     /**Fuente extraida de google fonts**/
     --fuentePrincipal: 'Staatliches', cursive;
 }
@@ -36,8 +35,12 @@ p {
 a {
     text-decoration: none;
 }
+
 img {
     width: 100%;
+    /**objet fit ajusta todas las imagene sin perder proporcion **/
+    object-fit: cover;
+    border-radius: 25px;
 }
 .contenedor {
     max-width: 120rem;
@@ -62,6 +65,9 @@ h3 {
 
 /** Header **/
 .header {
+    background: url(/imagenes/fondoJoyas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
@@ -69,17 +75,76 @@ h3 {
     width: 20rem;
     margin: 3rem 0;
 }
+
 /** Footer **/
 .footer {
     background-color: var(--primarioOscuro);
+    background: url(/imagenes/MercaCircular.jpg)
+    , url(/imagenes/ucaCuadrado.jpg);
     padding: 1rem 0;
     margin-top: 2rem;
+
+    background-size: 
+    120px 120px,
+    80px 80px ,
+    cover;
+
+    background-position: top left ,
+    bottom right ,
+    center
+    ;
+
+background-repeat: no-repeat;
+padding: 50px 20px;
+color: #FFFFFF;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.5s ease-in-out;
+
+
 }
+
+/* Efecto hover para las imágenes de fondo */
+.footer:hover {
+    background-size: 
+        150px 150px,  /* Círculos más grandes */
+        100px 100px,  /* Cuadrados más grandes */
+        cover;
+    
+    background-position: 
+        center,        /* Círculos al centro */
+        center,        /* Cuadrados al centro */
+        center;
+}
+
+/* Efecto de superposición para mejor legibilidad */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.footer:hover::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
 .footer__texto {
     font-family: var(--fuentePrincipal);
     text-align: center;
     font-size: 2.2rem;
 }
+
+
+
+
 /** Navegacion **/
 .navegacion {
     background-color: var(--primarioOscuro);
@@ -211,7 +276,7 @@ h3 {
 .formulario__campo {
    border: 1rem solid var(--primarioOscuro);
    background-color: transparent;
-   color: var(--blanco);
+   color: var(--primarioOscuro);
    font-size: 2rem;
    font-family: Arial, Helvetica, sans-serif;
    padding: 1rem;
